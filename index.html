@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS-News</title>
+    <link rel="stylesheet" href="assets/css/bulma.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .spinner {
+            width: 40px;
+            height: 40px;
+    
+            position: relative;
+            margin: 100px auto;
+        }
+    
+        .double-bounce1,
+        .double-bounce2 {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #333;
+            opacity: 0.6;
+            position: absolute;
+            top: 0;
+            left: 0;
+    
+            -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+            animation: sk-bounce 2.0s infinite ease-in-out;
+        }
+    
+        .double-bounce2 {
+            -webkit-animation-delay: -1.0s;
+            animation-delay: -1.0s;
+        }
+    
+        @-webkit-keyframes sk-bounce {
+    
+            0%,
+            100% {
+                -webkit-transform: scale(0.0)
+            }
+    
+            50% {
+                -webkit-transform: scale(1.0)
+            }
+        }
+    
+        @keyframes sk-bounce {
+    
+            0%,
+            100% {
+                transform: scale(0.0);
+                -webkit-transform: scale(0.0);
+            }
+    
+            50% {
+                transform: scale(1.0);
+                -webkit-transform: scale(1.0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-text-grey-dark is-size-3" href="C:\my_xampp\htdocs\JS-newsApi\index.html">
+                JS-News
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="C:\my_xampp\htdocs\JS-newsApi\index.html">Home</a>
+                <div class="navbar-item dropdown has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        Country
+                    </a>
+                    <div class="navbar-dropdown" id="source">
+                        <a href="?country=au" class="navbar-item is-capitalized" id="au">
+                            australia
+                        </a>
+                        <a href="?country=hk" class="navbar-item is-capitalized" id="hk">
+                            hong kong
+                        </a>
+                        <a href="?country=in" class="navbar-item is-capitalized" id="in">
+                            india
+                        </a>
+                        <a href="?country=il" class="navbar-item is-capitalized" id="il">
+                            israel
+                        </a>
+                        <a href="?country=jp" class="navbar-item is-capitalized" id="jp">
+                            japan
+                        </a>
+                        <a href="?country=cn" class="navbar-item is-capitalized" id="cn">
+                            reublic of china
+                        </a>
+                        
+
+                    </div>
+                </div>
+                <div class="navbar-item dropdown has-dropdown is-hoverable">
+                    <a class="navbar-link" >
+                        Sources
+                    </a>
+                    <div class="navbar-dropdown" id="source">
+                        <a href="?source=the-times-of-india" class="navbar-item is-capitalized" id="the-times-of-india">
+                            the times of india
+                        </a>
+                        <a href="?source=the-hindu" class="navbar-item is-capitalized" id="the-hindu">
+                            the hindu
+                        </a>
+                        <a href="?source=mtv-news" class="navbar-item is-capitalized" id="mtv-news">
+                            mtv news
+                        </a>
+                        <a href="?source=google-news-in" class="navbar-item is-capitalized" id="google-news-in">
+                            google news india
+                        </a>
+                        <a href="?source=google-news" class="navbar-item is-capitalized" id="google-news">
+                            google news
+                        </a>
+                        <a href="?source=entertainment-weekly" class="navbar-item is-capitalized" id="entertainment-weekly">
+                            entertainment weekly
+                        </a>
+                        <a href="?source=daily-mail" class="navbar-item is-capitalized" id="daily-mail">
+                            daily mail
+                        </a>
+                        <a href="?source=bbc-news" class="navbar-item is-capitalized" id="bbc-news">
+                            bbc news
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-primary">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a class="button is-light">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="navbar-divider">
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container">
+                <!-- Show loader -->
+                <div id="loader"></div>
+
+                <!-- News content -->
+                <div id="newsContent">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="assets/js/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+
+                // Check for click events on the navbar burger icon
+                $(".navbar-burger").click(function () {
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    $(".navbar-burger").toggleClass("is-active");
+                    $(".navbar-menu").toggleClass("is-active");
+
+                });                
+            });
+    </script>
+</body>
+</html>
